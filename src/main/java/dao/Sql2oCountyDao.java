@@ -5,7 +5,6 @@ import models.County;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,11 +28,6 @@ public class Sql2oCountyDao implements CountyDao {
 
         }
     }
-
-
-
-
-
 
     @Override
     public List<County> getAllCounties() {
@@ -74,6 +68,7 @@ public class Sql2oCountyDao implements CountyDao {
             return activeCases;
         }
     }
+
     public List<Cases> getAllRecoveredCasesInCounties(int county_id) {
         List<Cases> recoveredCases = new ArrayList<>();
         String sql = "SELECT * FROM cases WHERE county_id :county_id AND caseStatus ='Recovered' ";
@@ -103,9 +98,6 @@ public class Sql2oCountyDao implements CountyDao {
             return DeathCases;
         }
     }
-
-
-
 
     @Override
     public County findCountyById(int id) {
