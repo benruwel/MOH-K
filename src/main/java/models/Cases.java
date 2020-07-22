@@ -9,6 +9,7 @@ public class Cases {
     public Cases(int caseid, int countyid, String countystatus) {
         this.caseid = caseid;
         this.countyid = countyid;
+        this.countystatus = countystatus;
     }
 
     public int getCaseId() {
@@ -21,5 +22,17 @@ public class Cases {
 
     public String getCountyStatus() {
         return countystatus;
+    }
+
+    public void setCaseId(int caseid) {
+        this.caseid = caseid;
+    }
+
+    public void setCountyId(int countyid) {
+        this.countyid = countyid;
+    }
+
+    public void setCountyStatus(String countystatus) {
+        this.countystatus = countystatus;
     }
 }

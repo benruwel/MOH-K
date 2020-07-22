@@ -28,4 +28,25 @@ public class CasesTest {
         Cases cases = new Cases (1, 47, "Lockdown");
         assertEquals("Lockdown", cases.getCountyStatus());
     }
+
+    @Test
+    public void setCaseId() {
+        Cases cases = new Cases (1, 47, "Lockdown");
+        cases.setCaseId(1);
+        assertEquals(1, cases.getCaseId());
+    }
+
+    @Test
+    public void setCountyId() {
+        Cases cases = new Cases (1, 47, "Lockdown");
+        cases.setCountyId(47);
+        assertEquals(47, cases.getCountyId());
+    }
+
+    @Test
+    public void setCountyStatus() {
+        Cases cases = new Cases (1, 47, "Lockdown");
+        cases.setCountyStatus("Lockdown");
+        assertEquals("Lockdown", cases.getCountyStatus());
+    }
 }
