@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS counties{
 id SERIAL PRIMARY KEY int,
 countyName VARCHAR,
 countyPopulation int,
-countyCases int,
+totalCases int,
 
 };
 
