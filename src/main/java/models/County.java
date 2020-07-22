@@ -52,4 +52,36 @@ public class County {
     public int getActiveCases() {
         return activecases;
     }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
+
+    public void setTotalCases(int totalcases) {
+        this.totalcases = totalcases;
+    }
+
+    public void setNewCases(int newcases) {
+        this.newcases = newcases;
+    }
+
+    public void setTotalDeaths(int totaldeaths) {
+        this.totaldeaths = totaldeaths;
+    }
+
+    public void setNewDeaths(int newdeaths) {
+        this.newdeaths = newdeaths;
+    }
+
+    public void setTotalRecoveries(int totalrecoveries) {
+        this.totalrecoveries = totalrecoveries;
+    }
+
+    public void setNewRecoveries(int newrecoveries) {
+        this.newrecoveries = newrecoveries;
+    }
+
+    public void setActiveCases(int activecases) {
+        this.activecases = activecases;
+    }
 }

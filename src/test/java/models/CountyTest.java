@@ -56,7 +56,63 @@ public class CountyTest {
     @Test
     public void getActiveCases() {
         County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
-        assertEquals(18, county.getActiveCases());
+        assertEquals(7917, county.getActiveCases());
+    }
+
+    @Test
+    public void setCountyName() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        county.setCounty("Nairobi");
+        assertEquals("Nairobi", county.getCounty());
+    }
+
+    @Test
+    public void setTotalCases() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        county.setTotalCases(13771);
+        assertEquals(13771, county.getTotalCases());
+    }
+
+    @Test
+    public void setNewCases() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        county.setNewCases(540);
+        assertEquals(540, county.getNewCases());
+    }
+
+    @Test
+    public void setTotalDeaths() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        county.setTotalDeaths(238);
+        assertEquals(238, county.getTotalDeaths());
+    }
+
+    @Test
+    public void setNewDeaths() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        county.setNewDeaths(68);
+        assertEquals(68, county.getNewDeaths());
+    }
+
+    @Test
+    public void setTotalRecoveries() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        county.setTotalRecoveries(5616);
+        assertEquals(5616, county.getTotalRecoveries());
+    }
+
+    @Test
+    public void setNewRecoveries() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        county.setNewRecoveries(18);
+        assertEquals(18, county.getNewRecoveries());
+    }
+
+    @Test
+    public void setActiveCases() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        county.setActiveCases(7917);
+        assertEquals(7917, county.getActiveCases());
     }
 
 }
