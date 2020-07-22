@@ -34,6 +34,25 @@ public class Sql2oCasesDao implements CasesDao{
         }
     }
 
+    public  List<Cases> getAllActiveCases(){
+        String sql = "SELECT * FROM cases WHERE caseStatus ='Active' ";
+        try(Connection con = sql2o.open()) {
+            return con.createQuery(sql).executeAndFetch(Cases.class);
+        }
+    }
+    public  List<Cases> getAllDeathCases(){
+        String sql = "SELECT * FROM cases WHERE caseStatus ='Dead' ";
+        try(Connection con = sql2o.open()) {
+            return con.createQuery(sql).executeAndFetch(Cases.class);
+        }
+    }
+    public  List<Cases> getAllRecoveredCases(){
+        String sql = "SELECT * FROM cases WHERE caseStatus ='Recovered' ";
+        try(Connection con = sql2o.open()) {
+            return con.createQuery(sql).executeAndFetch(Cases.class);
+        }
+    }
+
     @Override
     public Cases findCaseById(int id) {
         String sql = "SELECT * FROM cases WHERE id = :id";
