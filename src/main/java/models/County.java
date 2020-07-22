@@ -2,6 +2,9 @@ package models;
 
 public class County {
     private final int newcases;
+    private final int totaldeaths;
+    private final int newdeaths;
+    private final int totalrecoveries;
     private String county;
     private int totalcases;
 
@@ -9,6 +12,9 @@ public class County {
         this.county = county;
         this.totalcases = totalcases;
         this.newcases = newcases;
+        this.totaldeaths = totaldeaths;
+        this.newdeaths = newdeaths;
+        this.totalrecoveries = totalrecoveries;
     }
 
     public String getCounty() {
@@ -21,5 +27,17 @@ public class County {
 
     public int getNewCases() {
         return newcases;
+    }
+
+    public int getTotalDeaths() {
+        return totaldeaths;
+    }
+
+    public int getNewDeaths() {
+        return newdeaths;
+    }
+
+    public int getTotalRecoveries() {
+        return totalrecoveries;
     }
 }

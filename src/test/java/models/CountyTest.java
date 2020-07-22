@@ -29,4 +29,22 @@ public class CountyTest {
         assertEquals(540, county.getNewCases());
     }
 
+    @Test
+    public void getTotalDeaths() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        assertEquals(238, county.getTotalDeaths());
+    }
+
+    @Test
+    public void getNewDeaths() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        assertEquals(68, county.getNewDeaths());
+    }
+
+    @Test
+    public void getTotalRecoveries() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        assertEquals(5616, county.getTotalRecoveries());
+    }
+
 }
