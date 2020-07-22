@@ -60,6 +60,50 @@ public class Sql2oCountyDao implements CountyDao {
         }
     }
 
+    public List<Cases> getAllActiveCasesInCounties(int county_id) {
+        List<Cases> activeCases = new ArrayList<>();
+        String sql = "SELECT * FROM cases WHERE county_id :county_id AND caseStatus ='Active' ";
+        try (Connection con = sql2o.open()) {
+            List<Integer> casesId = con.createQuery(sql).addParameter("county_id", county_id).executeAndFetch(Integer.class);
+
+            for (Integer id : casesId) {
+                String casesResults = "SELECT * FROM cases WHERE id=:id";
+                activeCases.add(con.createQuery(casesResults).addParameter("id", id).executeAndFetchFirst(Cases.class));
+
+            }
+            return activeCases;
+        }
+    }
+    public List<Cases> getAllRecoveredCasesInCounties(int county_id) {
+        List<Cases> recoveredCases = new ArrayList<>();
+        String sql = "SELECT * FROM cases WHERE county_id :county_id AND caseStatus ='Recovered' ";
+        try (Connection con = sql2o.open()) {
+            List<Integer> casesId = con.createQuery(sql).addParameter("county_id", county_id).executeAndFetch(Integer.class);
+
+            for (Integer id : casesId) {
+                String casesResults = "SELECT * FROM cases WHERE id=:id";
+                recoveredCases.add(con.createQuery(casesResults).addParameter("id", id).executeAndFetchFirst(Cases.class));
+
+            }
+            return recoveredCases;
+        }
+    }
+
+    public List<Cases> getAllDeathCasesInCounties(int county_id) {
+        List<Cases> DeathCases = new ArrayList<>();
+        String sql = "SELECT * FROM cases WHERE county_id :county_id AND caseStatus ='Dead' ";
+        try (Connection con = sql2o.open()) {
+            List<Integer> casesId = con.createQuery(sql).addParameter("county_id", county_id).executeAndFetch(Integer.class);
+
+            for (Integer id : casesId) {
+                String casesResults = "SELECT * FROM cases WHERE id=:id";
+                DeathCases.add(con.createQuery(casesResults).addParameter("id", id).executeAndFetchFirst(Cases.class));
+
+            }
+            return DeathCases;
+        }
+    }
+
 
 
 
