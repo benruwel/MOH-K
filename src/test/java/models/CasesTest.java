@@ -49,4 +49,11 @@ public class CasesTest {
         cases.setCountyStatus("Lockdown");
         assertEquals("Lockdown", cases.getCountyStatus());
     }
+
+    @Test
+    public void setId() {
+        Cases cases = new Cases (1, 47, "Lockdown");
+        cases.setId(1);
+        assertEquals(1, cases.getId());
+    }
 }
