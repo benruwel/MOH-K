@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class County {
     private String county;
     private int totalcases;
@@ -9,6 +11,7 @@ public class County {
     private int totalrecoveries;
     private int newrecoveries;
     private int activecases;
+    private int id;
 
     public County(String county, int totalcases, int newcases, int totaldeaths, int newdeaths, int totalrecoveries, int newrecoveries, int activecases) {
         this.county = county;
@@ -83,5 +86,34 @@ public class County {
 
     public void setActiveCases(int activecases) {
         this.activecases = activecases;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof County)) return false;
+        County that = (County) o;
+        return totalcases == that.totalcases &&
+                newcases == that.newcases &&
+                totaldeaths == that.totaldeaths &&
+                newdeaths == that.newdeaths &&
+                totalrecoveries == that.totalrecoveries &&
+                newrecoveries == that.newrecoveries &&
+                activecases == that.activecases &&
+                Objects.equals(county, that.county);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(county, totalcases, newcases, totaldeaths, newdeaths, totalrecoveries, newrecoveries, activecases);
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
