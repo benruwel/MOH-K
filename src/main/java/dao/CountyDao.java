@@ -8,11 +8,7 @@ import java.util.List;
 public interface CountyDao {
     //Create
     void add (County county);
-    // void addCountyCases(Cases cases,Counties counties);
 
-    //Update
-
-    void update(County county);
 
     //Read
     List<County> getAllCounties();

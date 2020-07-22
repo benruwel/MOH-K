@@ -30,37 +30,7 @@ public class Sql2oCountyDao implements CountyDao {
         }
     }
 
-    @Override
-    public void update(County counties) {
-        String sql = " UPDATE counties(countyName,countyPopulation,countyCases) VALUES (:countyName,:countyPopulation,:countyCases)";
 
-
-    }
-
-
-    /*  @Override
-    public void addCountyCases(Cases cases, Counties counties) {
-        try (Connection con = sql2o.open()){
-            String sql = "INSERT INTO counties()";
-        }
-
-        try(Connection con=sql2o.open()) {
-            String sql="INSERT INTO counties (user_id,department_id) VALUES (:user_id,:department_id)";
-            con.createQuery(sql)
-                    .addParameter("user_id",user.getId())
-                    .addParameter("department_id",department.getId())
-                    .executeUpdate();
-            String sizeQuery="SELECT user_id FROM users_departments";
-            List<Integer> size=con.createQuery(sizeQuery)
-                    .executeAndFetch(Integer.class);
-            String updateDepartmentSize="UPDATE departments SET size=:size WHERE id=:id";
-            con.createQuery(updateDepartmentSize).addParameter("id",department.getId())
-                    .addParameter("size",size.size())
-                    .executeUpdate();
-
-        }catch (Sql2oException e){
-            System.out.println(e);
-        }*/
 
 
 
@@ -89,6 +59,8 @@ public class Sql2oCountyDao implements CountyDao {
             return cases;
         }
     }
+
+
 
 
     @Override
