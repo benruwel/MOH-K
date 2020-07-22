@@ -17,4 +17,10 @@ public class CountyTest {
         assertEquals("Nairobi", county.getCounty());
     }
 
+    @Test
+    public void getTotalCases() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        assertEquals(13771, county.getTotalCases());
+    }
+
 }
