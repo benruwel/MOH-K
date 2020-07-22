@@ -1,5 +1,6 @@
 package dao;
 
+import org.junit.After;
 import org.junit.Before;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -18,4 +19,8 @@ public class Sql2oCasesDaoTest {
         conn = sql2o.open();
     }
 
+    @After
+    public void tearDown() throws Exception {
+        conn.close();
+    }
 }
