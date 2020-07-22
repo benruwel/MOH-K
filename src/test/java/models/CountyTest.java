@@ -47,4 +47,16 @@ public class CountyTest {
         assertEquals(5616, county.getTotalRecoveries());
     }
 
+    @Test
+    public void getNewRecoveries() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        assertEquals(18, county.getNewRecoveries());
+    }
+
+    @Test
+    public void getActiveCases() {
+        County county = new County("Nairobi", 13771, 540, 238, 68, 5616, 18, 7917);
+        assertEquals(18, county.getActiveCases());
+    }
+
 }
