@@ -1,15 +1,13 @@
-SET MODE PostgreSQL;
+CREATE DATABASE healthapp;
+\c healthapp
 
-CREATE TABLE IF NOT EXISTS counties (
-id int SERIAL PRIMARY KEY auto_increment,
-countyName VARCHAR,
-countyPopulation int,
-totalCases int
-);
-
-CREATE TABLE IF NOT EXISTS cases (
-id int SERIAL PRIMARY KEY auto_increment,
-name VARCHAR,
-county_id int,
-case_status VARCHAR
+CREATE TABLE IF NOT EXISTS counties(
+id SERIAL PRIMARY KEY,
+county_name VARCHAR,
+county_code INT,
+county_population INT,
+total_cases INT,
+active_cases INT,
+recovered_cases INT,
+death_cases INT
 );
