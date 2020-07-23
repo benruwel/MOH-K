@@ -1,7 +1,7 @@
 CREATE DATABASE healthapp;
 \c healthapp
 
-CREATE TABLE IF NOT EXISTS counties(
+CREATE TABLE IF NOT EXISTS counties (
 id SERIAL PRIMARY KEY,
 county_name VARCHAR,
 county_code INT,
@@ -11,3 +11,5 @@ active_cases INT,
 recovered_cases INT,
 death_cases INT
 );
+
+CREATE TABLE IF NOT EXISTS counties_test WITH TEMPLATE counties;

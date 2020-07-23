@@ -70,10 +70,18 @@ public class App {
         });
 */
 
+        post("/case/new", "application/json", (request, response) -> {
+            County county = gson.fromJson(request.body(),County.class);
+            if(sql2oCountyDao.getAllCounties().size()>47){
+                return "{\"message\":\"Sorry You currently have no cases\"}";
+            }
+            else {
+                sql2oCountyDao.add(county);
+                response.status(201);
+                return gson.toJson(county);
+            }
 
-
-
-
+        });
 
         //FILTERS
         exception(ApiException.class, (exception, request, response) -> {
