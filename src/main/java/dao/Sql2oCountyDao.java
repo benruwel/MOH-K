@@ -4,8 +4,6 @@ import models.County;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Sql2oCountyDao implements CountyDao {
@@ -18,7 +16,7 @@ public class Sql2oCountyDao implements CountyDao {
 
     @Override
     public void add(County counties) {
-        String sql = "INSERT INTO counties(countyName,countyCode,countyPopulation,totalCases,activeCases,recoveredCases,deathCases) VALUES (:countyName,:countyCode,:countyPopulation,:totalCases,:activeCases,:recoveredCases,:deathCases)";
+        String sql = "INSERT INTO counties (county_name, county_code, county_population, total_cases, active_cases, recovered_cases, death_cases) VALUES (:county_name, :county_code, :county_population, :total_cases, :active_cases, :recovered_cases, :death_cases)";
         try(Connection con =sql2o.open()) {
             int id = (int)con.createQuery(sql,true).bind(counties).executeUpdate().getKey();
             counties.setId(id);
@@ -62,7 +60,7 @@ public class Sql2oCountyDao implements CountyDao {
 
     @Override
     public void update(int id) {
-        String sql = "UPDATE counties SET countyCode = :countyCode WHERE id =:id";
+        String sql = "UPDATE counties SET county_code = :county_code WHERE id =:id";
         try(Connection con = sql2o.open()) {
              con.createQuery(sql).addParameter("id",id).executeUpdate();
         }

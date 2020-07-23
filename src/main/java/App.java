@@ -13,7 +13,7 @@ import static spark.Spark.*;
 public class App {
     public static void main(String[] args) {
         String connectionString = "jdbc:postgresql://localhost:5432/healthapp";
-        Sql2o sql2o = new Sql2o(connectionString, "tonui", "chepkemoi1999.");
+        Sql2o sql2o = new Sql2o(connectionString, "gideon", "33450715Go.");
 
         Sql2oCountyDao sql2oCountyDao = new Sql2oCountyDao(sql2o);
         Connection con;
@@ -70,10 +70,18 @@ public class App {
         });
 */
 
+        post("/case/new", "application/json", (request, response) -> {
+            County county = gson.fromJson(request.body(),County.class);
+            if(sql2oCountyDao.getAllCounties().size()>47){
+                return "{\"message\":\"Sorry You currently have no cases\"}";
+            }
+            else {
+                sql2oCountyDao.add(county);
+                response.status(201);
+                return gson.toJson(county);
+            }
 
-
-
-
+        });
 
         //FILTERS
         exception(ApiException.class, (exception, request, response) -> {

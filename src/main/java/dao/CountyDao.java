@@ -8,8 +8,6 @@ public interface CountyDao {
     //Create
     void add (County county);
 
-
-
     //Read
     List<County> getAllCounties();
 
