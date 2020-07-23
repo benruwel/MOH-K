@@ -16,7 +16,7 @@ public class Sql2oCountyDao implements CountyDao {
 
     @Override
     public void add(County counties) {
-        String sql = "INSERT INTO counties (countyName,countyPopulation,countyCases) VALUES (:countyName,:countyPopulation,:countyCases)";
+        String sql = "INSERT INTO counties (county_name,county_population,county_cases) VALUES (:county_name,:county_population,:county_cases)";
         try(Connection con =sql2o.open()) {
             int id = (int)con.createQuery(sql,true).bind(counties).executeUpdate().getKey();
             counties.setId(id);
@@ -60,7 +60,7 @@ public class Sql2oCountyDao implements CountyDao {
 
     @Override
     public void update(int id) {
-        String sql = "UPDATE counties SET countyCode = :countyCode WHERE id =:id";
+        String sql = "UPDATE counties SET county_code = :county_code WHERE id =:id";
         try(Connection con = sql2o.open()) {
              con.createQuery(sql).addParameter("id",id).executeUpdate();
         }
