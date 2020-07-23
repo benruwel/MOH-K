@@ -10,5 +10,6 @@ public interface CasesDao {
 
     //Read
     List<Cases> getAllCases();
+    //List <County> getAllCountiesWithCases(int id);
     Cases findCaseById(int id);
 }

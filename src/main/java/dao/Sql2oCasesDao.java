@@ -14,9 +14,10 @@ public class Sql2oCasesDao implements CasesDao{
 
     @Override
     public void addCase(Cases cases) {
-        String sql = "INSERT INTO cases(county_id, caseStatus) VALUES (:county_id, :caseStatus)";
+        String sql = "INSERT INTO cases (name, county_id, case_status) VALUES (:name, :county_id, :case_status)";
         try (Connection con = sql2o.open()){
-            int id =(int)con.createQuery(sql,true).bind(cases).executeUpdate().getKey();
+            int id =(int)con.createQuery(sql,true)
+                    .bind(cases).executeUpdate().getKey();
             cases.setId(id);
         }
         catch (Sql2oException ex){
@@ -33,14 +34,14 @@ public class Sql2oCasesDao implements CasesDao{
     }
 
     public  List<Cases> getAllActiveCases(){
-        String sql = "SELECT * FROM cases WHERE caseStatus ='Active' ";
+        String sql = "SELECT * FROM cases WHERE case_status ='Active' ";
         try(Connection con = sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Cases.class);
         }
     }
 
     public  List<Cases> getAllDeathCases(){
-        String sql = "SELECT * FROM cases WHERE caseStatus ='Dead' ";
+        String sql = "SELECT * FROM cases WHERE case_status ='Dead' ";
         try(Connection con = sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Cases.class);
         }
